@@ -63,3 +63,8 @@ I am using [Blot.im](http://blot.im). It automatically updates the CSS fragment 
 ## Final Thoughts
 I'm an artist, not a coder, and I wrote this with the tools I know. I am sure there are many, many other ways to do this, and I provided the details here so that you can rewrite it with the tools you know. Enjoy.
 
+## License
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+
+You may use this code without warranty for non-commercial projects. For commercial projects, please contact me at https://laurafisher.art for a license. 
+
