@@ -5,6 +5,7 @@ An art project depicting the current phase of the moon in CSS
 ##In Action
 See the end product here: http://mitten.github.io/css-moon
 
+
 ## History & Purpose
 For many years, I have been wanting to create an image of the moon which would change dynamically with the phases of the actual moon. Finally, the technical tools exist to build it the way I want to.
 
@@ -23,13 +24,13 @@ I lament the fact that not many people watch the details of the physical world a
 
 The files in this repository are specific to the tools I've used to set up this dynamic system. However, you should be able to adapt them to a variety of platforms. Be clever.
 
-#API#
+**API**
 You need a weather API which gives the age of the moon in days, and the illumination of the moon as a percent.
 
-#Script#
+**Script**
 You need to be able to manipulate the numbers you get from the API and write them to a file as CSS selectors.
 
-#Static Site Generator#
+**Static Site Generator**
 You need an automated way to update the CSS files for your site.
 
 
