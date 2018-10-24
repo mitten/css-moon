@@ -7,6 +7,7 @@ An art project depicting the current phase of the moon in CSS
 	- [API](#API)
 	- [Script](#script)
 	- [Site Generator](#site-generator)
+- [Final Thoughts](#final-thoughts)
 
 
 ## In Action
@@ -46,12 +47,19 @@ You need an automated way to update the CSS files for your site.
 I am using the [Aeris Weather API](https://www.aerisweather.com/). The two data items you need are age of moon in days and illumination of moon as a percentage.
 
 ### Script
-The script which gets the data is an Applescript which grabs the data, performs various calculations to create CSS selectors, and writes those to a file. In order to read API data with Applescript, you'll need to install the free helper app [JSON Helper](http://www.mousedown.net/mouseware/JSONHelper.html).
+The script (get-moon-data.scpt) grabs the data, performs various calculations to create CSS selectors, and writes those to a file. In order to read API data with Applescript, you'll need to install the free helper app [JSON Helper](http://www.mousedown.net/mouseware/JSONHelper.html).
 
 Read the comments in the script for more information about how the various numbers are calculated. Be sure to put in your own API client ID and secret key, and to change the path to the CSS file.
 
-In order to automate the running of the script, I created a launchd file (local.moonupdate.plist) which runs every 15 minutes. [Quick launchd tutorial](https://www.maketecheasier.com/use-launchd-run-scripts-on-schedule-macos/) Be sure to change the path to your path.
+In order to automate the running of the script, I created a launchd file (local.moonupdate.plist) which runs every 15 minutes. Be sure to change the path to your path. [Quick launchd tutorial](https://www.maketecheasier.com/use-launchd-run-scripts-on-schedule-macos/) 
+
+The moon.css fragment is pulled into the main styles.css file via @import.
+
 
 ### Site Generator
-I am using [Blot.im](http://blot.im). It automatically updates the CSS file in the blog template any time it
+I am using [Blot.im](http://blot.im). It automatically updates the CSS fragment in the blog template folder any time the file is updated, which is the crux of this whole system.
+
+
+## Final Thoughts
+I'm an artist, not a coder, and I wrote this with the tools I know. I am sure there are many, many other ways to do this, and I provided the details here so that you can rewrite it with the tools you know. Enjoy.
 
