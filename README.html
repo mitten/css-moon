@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="cssmoon">CSS Moon</h1>
+
+<p>An art project depicting the current phase of the moon in CSS</p>
+
+<ul>
+<li><a href="#history--purpose">History &amp; Purpose</a></li>
+<li><a href="#components">Components</a></li>
+<li><a href="#specifics">Specifics</a>
+
+<ul>
+<li><a href="#API">API</a></li>
+<li><a href="#script">Script</a></li>
+<li><a href="#site-generator">Site Generator</a></li>
+</ul></li>
+<li><a href="#final-thoughts">Final Thoughts</a></li>
+</ul>
+
+<h2 id="inaction">In Action</h2>
+
+<p>See the end product here: http://mitten.github.io/css-moon</p>
+
+<h2 id="historypurpose">History &amp; Purpose</h2>
+
+<p>For many years, I have been wanting to create an image of the moon which would change dynamically with the phases of the actual moon. Finally, the technical tools exist to build it the way I want to.</p>
+
+<p>My first attempts involved reading moon data from a weather API, and using javascript to rewrite CSS text colors and background colors to change from dark to light with the waxing and waning of the moon, without making any attempts at a moon shape. It was not very satifying, as it was too slow - grabbing the API data and then writing the CSS made page drawing times excrutiating.</p>
+
+<p>Later attempts included trying to shift a moon shape from crescent to full and back, using then-new CSS tools like scale and transform. But again, the limitations of the API plus javascript method just made things too slow to be any fun, and at any kind of scale, I would have run out of free API calls. Plus, the CSS transformations were simply not well-supported across browsers.</p>
+
+<p>Fast-forward to 2018. While attempting to set up a blog, I discovered Blot.im - a service which will make a website out of files on your Dropbox. You make posts by dropping text files into a folder, and Blot renders them with a Mustache-based template. The template can live on your Dropbox, too.</p>
+
+<p>And that was the piece of the moon puzzle that I needed! I can run a script to get the moon data on my local machine, which updates a CSS snippet in the Blot folder, which is then used for rendering the site immediately. As the moon is a slowly changing object, updating the data every 15 minutes is totally fine and keeps me under the free API call limit. And modern CSS transformations are now supported by just about every browser, so the moon shape change is totally doable as well.</p>
+
+<p>I lament the fact that not many people watch the details of the physical world around us, and this project is my way of bringing some of that natural data to the digital world. The site gets darker as the moon wanes, and brighter as it waxes, giving visitors a subtle reminder that we exist on a spinning planet.</p>
+
+<h2 id="components">Components</h2>
+
+<p>The files in this repository are specific to the tools I&#8217;ve used to set up this dynamic system. However, you should be able to adapt them to a variety of platforms. Be clever.</p>
+
+<p><strong>API</strong>
+You need a weather API which gives the age of the moon in days, and the illumination of the moon as a percent.</p>
+
+<p><strong>Script</strong>
+You need to be able to manipulate the numbers you get from the API and write them to a file as CSS selectors. You also need to be able to automate the running of the script.</p>
+
+<p><strong>Site Generator</strong>
+You need an automated way to update the CSS files for your site.</p>
+
+<h2 id="specifics">Specifics</h2>
+
+<h3 id="api">API</h3>
+
+<p>I am using the <a href="https://www.aerisweather.com/">Aeris Weather API</a>. The two data items you need are age of moon in days and illumination of moon as a percentage.</p>
+
+<h3 id="script">Script</h3>
+
+<p>The script (get-moon-data.scpt) grabs the data, performs various calculations to create CSS selectors, and writes those to a file. In order to read API data with Applescript, you&#8217;ll need to install the free helper app <a href="http://www.mousedown.net/mouseware/JSONHelper.html">JSON Helper</a>.</p>
+
+<p>Read the comments in the script for more information about how the various numbers are calculated. Be sure to put in your own API client ID and secret key, and to change the path to the CSS file.</p>
+
+<p>In order to automate the running of the script, I created a launchd file (local.moonupdate.plist) which runs every 15 minutes. Be sure to change the path to your path. <a href="https://www.maketecheasier.com/use-launchd-run-scripts-on-schedule-macos/">Quick launchd tutorial</a></p>
+
+<p>The moon.css fragment is pulled into the main styles.css file via @import.</p>
+
+<h3 id="sitegenerator">Site Generator</h3>
+
+<p>I am using <a href="http://blot.im">Blot.im</a>. It automatically updates the CSS fragment in the blog template folder any time the file is updated, which is the crux of this whole system.</p>
+
+<h2 id="finalthoughts">Final Thoughts</h2>
+
+<p>I&#8217;m an artist, not a coder, and I wrote this with the tools I know. I am sure there are many, many other ways to do this, and I provided the details here so that you can rewrite it with the tools you know. Enjoy.</p>
+
+<h2 id="license">License</h2>
+
+<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p>
+
+<p>You may use this code without warranty for non-commercial projects. For commercial projects, please contact me at https://laurafisher.art for a license.</p>
+
+</body>
+</html>
+
