@@ -1,7 +1,7 @@
 # CSS Moon
 An art project depicting the current phase of the moon in CSS
 
-- [History & Purpose](#history)
+- [History & Purpose](#history--purpose)
 - [Components](#components)
 - [Specifics](#specifics)
 
@@ -10,7 +10,7 @@ An art project depicting the current phase of the moon in CSS
 See the end product here: http://mitten.github.io/css-moon
 
 
-## History & Purpose<a name="history"></a>
+## History & Purpose
 For many years, I have been wanting to create an image of the moon which would change dynamically with the phases of the actual moon. Finally, the technical tools exist to build it the way I want to.
 
 My first attempts involved reading moon data from a weather API, and using javascript to rewrite CSS text colors and background colors to change from dark to light with the waxing and waning of the moon, without making any attempts at a moon shape. It was not very satifying, as it was too slow - grabbing the API data and then writing the CSS made page drawing times excrutiating.
