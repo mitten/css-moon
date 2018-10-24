@@ -1,12 +1,16 @@
 # CSS Moon
 An art project depicting the current phase of the moon in CSS
 
+- [History & Purpose](#history)
+- [Components](#components)
+- [Specifics](#specifics)
 
-##In Action
+
+## In Action
 See the end product here: http://mitten.github.io/css-moon
 
 
-## History & Purpose
+## History & Purpose<a name="history"></a>
 For many years, I have been wanting to create an image of the moon which would change dynamically with the phases of the actual moon. Finally, the technical tools exist to build it the way I want to.
 
 My first attempts involved reading moon data from a weather API, and using javascript to rewrite CSS text colors and background colors to change from dark to light with the waxing and waning of the moon, without making any attempts at a moon shape. It was not very satifying, as it was too slow - grabbing the API data and then writing the CSS made page drawing times excrutiating.
@@ -20,19 +24,18 @@ And that was the piece of the moon puzzle that I needed! I can run a script to g
 I lament the fact that not many people watch the details of the physical world around us, and this project is my way of bringing some of that natural data to the digital world. The site gets darker as the moon wanes, and brighter as it waxes, giving visitors a subtle reminder that we exist on a spinning planet.
 
 
-## Components
-
+## Components<a name="components"></a>
 The files in this repository are specific to the tools I've used to set up this dynamic system. However, you should be able to adapt them to a variety of platforms. Be clever.
 
 **API**
 You need a weather API which gives the age of the moon in days, and the illumination of the moon as a percent.
 
 **Script**
-You need to be able to manipulate the numbers you get from the API and write them to a file as CSS selectors.
+You need to be able to manipulate the numbers you get from the API and write them to a file as CSS selectors. You also need to be able to automate the running of the script.
 
-**Static Site Generator**
+**Site Generator**
 You need an automated way to update the CSS files for your site.
 
 
-## Specifics
+## Specifics<a name="specifics"></a>
 
