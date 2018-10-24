@@ -39,3 +39,16 @@ You need an automated way to update the CSS files for your site.
 
 ## Specifics<a name="specifics"></a>
 
+### API
+I am using the [Aeris Weather API](https://www.aerisweather.com/). The two data items you need are age of moon in days and illumination of moon as a percentage.
+
+### Script
+The script which gets the data is an Applescript which grabs the data, performs various calculations to create CSS selectors, and writes those to a file. In order to read API data with Applescript, you'll need to install the free helper app [JSON Helper](http://www.mousedown.net/mouseware/JSONHelper.html).
+
+Read the comments in the script for more information about how the various numbers are calculated. Be sure to put in your own API client ID and secret key, and to change the path to the CSS file.
+
+In order to automate the running of the script, I created a launchd file (local.moonupdate.plist) which runs every 15 minutes. [Quick launchd tutorial](https://www.maketecheasier.com/use-launchd-run-scripts-on-schedule-macos/) Be sure to change the path to your path.
+
+### Site Generator
+I am using [Blot.im](http://blot.im). It automatically updates the CSS file in the blog template any time it
+
