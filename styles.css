@@ -1,11 +1,12 @@
-/* This css snippet brings in the real time data for the moon shape. It sets:
+/* This css snippet brings in the real time data for the moon shape.
+It sets:
 body, .moonshadow { background & color }
 .light { color }
 .moon { -webkit-clip-path & clip-path }
 .moonglow { box-shadow }
-.moonshadow { display } */
+.moonshadow { display }
+See https://github.com/mitten/css-moon for further information */
 @import "moon.css";
-
 
 
 /* BASIC STYLING */
