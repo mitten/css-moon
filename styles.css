@@ -1,15 +1,14 @@
 /* This css snippet brings in the real time data for the moon shape. It sets:
 body, .moonshadow { background & color }
 .light { color }
-.moonglow { box-shadow }
-.moonshadow { display }
 .moon { -webkit-clip-path & clip-path }
-
-
-*/
-
+.moonglow { box-shadow }
+.moonshadow { display } */
 @import "moon.css";
 
+
+
+/* BASIC STYLING */
 
 html {
 	min-height:  100%;
