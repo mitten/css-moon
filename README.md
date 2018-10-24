@@ -4,6 +4,9 @@ An art project depicting the current phase of the moon in CSS
 - [History & Purpose](#history--purpose)
 - [Components](#components)
 - [Specifics](#specifics)
+	- [API](#API)
+	- [Script](#script)
+	- [Site Generator](#site-generator)
 
 
 ## In Action
@@ -24,7 +27,7 @@ And that was the piece of the moon puzzle that I needed! I can run a script to g
 I lament the fact that not many people watch the details of the physical world around us, and this project is my way of bringing some of that natural data to the digital world. The site gets darker as the moon wanes, and brighter as it waxes, giving visitors a subtle reminder that we exist on a spinning planet.
 
 
-## Components<a name="components"></a>
+## Components
 The files in this repository are specific to the tools I've used to set up this dynamic system. However, you should be able to adapt them to a variety of platforms. Be clever.
 
 **API**
@@ -37,7 +40,7 @@ You need to be able to manipulate the numbers you get from the API and write the
 You need an automated way to update the CSS files for your site.
 
 
-## Specifics<a name="specifics"></a>
+## Specifics
 
 ### API
 I am using the [Aeris Weather API](https://www.aerisweather.com/). The two data items you need are age of moon in days and illumination of moon as a percentage.
