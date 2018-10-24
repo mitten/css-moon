@@ -14,7 +14,7 @@ See https://github.com/mitten/css-moon for further information */
 html {
 	min-height:  100%;
 	margin: 0;
-	font-family: GillSans, Calibri, Trebuchet, sans-serif;
+	font-family: Calibri, "Arial Narrow", sans-serif;
 }
 
 body {
