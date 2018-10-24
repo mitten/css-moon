@@ -1,16 +1,20 @@
 (*
 This script writes a CSS fragment that is saved
-to the blot.im templates folder and is subsequently
-included in the main CSS file. The script is run as
+to a template folder and is subsequently
+included in a main CSS file. The script is run as
 a launchd called local.moonupdate every 15 minutes,
 effectively updating the background & text colors
 and the shape of the moon image regularly
 to match the illumination/phase of the moon.
+
+You must put in your own client information for the API,
+and update the path where the moon.css will be written.
 *)
 
 --get the illumination of the moon as a percentage and the age in days
 tell application "JSON Helper"
 	
+	--change this to your zipcode, client ID, and secret key
 	set theRecord to fetch JSON from "https://api.aerisapi.com/sunmoon/your-zipcode?client_id=your-client-id&client_secret=your-secret-key"
 	
 	set thePhase to phase of moon of item 1 of response of theRecord
@@ -40,6 +44,7 @@ else
 end if
 
 -- css for background and text color
+-- change the first number of the hsl/hsla to get a different hue
 set the_css to "body, .moonshadow {background:hsl(235,6%," & illumbackground & "%); color: hsl(0,0%," & illumtext & "%);} .light {color: hsla(0,0%," & illumtext & "%,.5);}" as string
 
 -- adds a faint outline during the full moon, a fainter one just before and after, and two levels of faint glow otherwise
@@ -57,7 +62,7 @@ end if
 - four separate specifications are required
 - two cases move a shadow across a white disc, two cases move a clipping path across a white disc
 - the addition/subtraction of the inverses/multiples is to slow/speed up the transition at the edges
-- the variance in numbers is due to trying to make things "look right" instead of being scientifically accurate
+- the variance in numbers is due to trying to make things "look right" instead of being numerically accurate
 - values for moonage are 0 to 29.53058868
 *)
 
@@ -99,8 +104,8 @@ if moonage > 22.2 then
 	set the_css to the_css & " .moonshadow {transform: scale(1," & scalemoonage & ") translate(" & translatemoonage & "%, 0%);}" as string
 end if
 
--- choose css file
-set cssFile to ("Lenore:Users:ellemef:Dropbox:Apps:Blot:Templates:second-pass:moon.css")
+-- choose css file --change this to your path
+set cssFile to ("path:to:your:site:template:file:moon.css")
 
 -- write everything to file
 writeTextToFile(the_css, cssFile, true)
