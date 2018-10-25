@@ -1,7 +1,7 @@
 # CSS Moon
 An art project depicting the current phase of the moon in CSS
 
-- [History & Purpose](#history--purpose)
+- [Purpose & History](#purpose--history)
 - [Components](#components)
 - [Specifics](#specifics)
 	- [API](#API)
@@ -15,18 +15,19 @@ An art project depicting the current phase of the moon in CSS
 See the end product here: http://mitten.github.io/css-moon
 
 
-## History & Purpose
-For many years, I have been wanting to create an image of the moon which would change dynamically with the phases of the actual moon.
+## Purpose & History
+Few people watch the details of the physical world around us, and this project is my way of bringing some visual data from the natural world into the digital world. The color of the site gets darker as the moon's light wanes, and brighter as it waxes, giving visitors a subtle reminder that we exist on a spinning planet.
 
-My first attempts involved reading moon data from a weather API, and using javascript to rewrite CSS text colors and background colors to change from dark to light with the waxing and waning of the moon, without making any attempts at a moon shape. It was not very satifying, as it was too slow - grabbing the API data and then writing the CSS made page drawing times excrutiating.
+This project has been on my mind for many years. I started out looking to create a way to change the color of a website dynamically with the phases of the moon, mimicking the way the sky is darker on a moonless night, and brighter when it's near the full moon.
+
+My first attempts involved reading moon data from a weather API, and using javascript to rewrite CSS background colors on the fly, changing them from dark to light with the waning and waxing of the moon It was not very satifying, as it was too slow - grabbing the API data and then writing the CSS made page drawing times excrutiating.
 
 Later attempts included trying to shift a moon shape from crescent to full and back, using then-new CSS tools like scale and transform. But again, the limitations of the API plus javascript method just made things too slow to be any fun, and the CSS transformations were simply not well-supported across browsers.
 
-Fast-forward to 2018. While attempting to set up a blog, I discovered Blot.im - a service which will make a website out of files on Dropbox. You make posts by dropping text files into a folder, and Blot renders them with a Mustache-based template. The template can live in Dropbox, too. 
+Fast-forward to 2018. While attempting to set up a blog, I discovered Blot.im - a service which makes websites out of files on Dropbox. You make posts by dropping text files into a folder, and Blot renders them with a [Mustache](http://mustache.github.io/)-based template. The template can live in Dropbox, too. 
 
-And that was the piece of the moon puzzle that I needed! I can run a script to get the moon data on my local machine, which updates a CSS snippet in the Blot folder, which is then used for rendering the site immediately. As the moon is a slowly changing object, updating the data every 15 minutes is totally fine and keeps me under the free API call limit. And modern CSS transformations are now supported by just about every browser, so the moon shape change is totally doable as well.
+And that was the piece of the moon puzzle that I needed! I run a script to get the moon data on my local machine, which updates a CSS snippet in the Blot folder, which is then used for rendering the site immediately - no waiting on an API call or Javascript rewrites. As the moon is a slowly changing object, updating the data every 15 minutes is totally fine and keeps me under the free API call limit. And modern CSS transformations are now supported by just about every browser, so the moon shape change is totally doable as well.
 
-I lament the fact that not many people watch the details of the physical world around us, and this project is my way of bringing some of that natural data to the digital world. The site gets darker as the moon wanes, and brighter as it waxes, giving visitors a subtle reminder that we exist on a spinning planet.
 
 
 ## Components
@@ -48,9 +49,9 @@ You need an automated way to update the CSS files for your site.
 I am using the [Aeris Weather API](https://www.aerisweather.com/). The two data items you need are age of moon in days and illumination of moon as a percentage.
 
 ### Script
-The script (get-moon-data.scpt) grabs the data, performs various calculations to create CSS selectors, and writes those to a file. In order to read API data with Applescript, you'll need to install the free helper app [JSON Helper](http://www.mousedown.net/mouseware/JSONHelper.html).
+The script (get-moon-data.scpt) grabs the data, performs various calculations to create CSS selectors, and writes those to a file (moon.css). In order to read API data with Applescript, you'll need to install the free helper app [JSON Helper](http://www.mousedown.net/mouseware/JSONHelper.html).
 
-Read the comments in the script for more information about how the various numbers are calculated. Be sure to put in your own API client ID and secret key, and to change the path to the CSS file.
+Read the comments in the script for more information about how the various numbers are calculated. Be sure to put in your own API client ID and secret key, and to change the path to the CSS file. If you're using a different API, you will also need to adjust the names/keys for the data pieces you want.
 
 In order to automate the running of the script, I created a launchd file (local.moonupdate.plist) which runs every 15 minutes. Be sure to change the path to your path. [Quick launchd tutorial](https://www.maketecheasier.com/use-launchd-run-scripts-on-schedule-macos/) 
 
