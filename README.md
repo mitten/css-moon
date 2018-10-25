@@ -16,13 +16,13 @@ See the end product here: http://mitten.github.io/css-moon
 
 
 ## History & Purpose
-For many years, I have been wanting to create an image of the moon which would change dynamically with the phases of the actual moon. Finally, the technical tools exist to build it the way I want to.
+For many years, I have been wanting to create an image of the moon which would change dynamically with the phases of the actual moon.
 
 My first attempts involved reading moon data from a weather API, and using javascript to rewrite CSS text colors and background colors to change from dark to light with the waxing and waning of the moon, without making any attempts at a moon shape. It was not very satifying, as it was too slow - grabbing the API data and then writing the CSS made page drawing times excrutiating.
 
-Later attempts included trying to shift a moon shape from crescent to full and back, using then-new CSS tools like scale and transform. But again, the limitations of the API plus javascript method just made things too slow to be any fun, and at any kind of scale, I would have run out of free API calls. Plus, the CSS transformations were simply not well-supported across browsers.
+Later attempts included trying to shift a moon shape from crescent to full and back, using then-new CSS tools like scale and transform. But again, the limitations of the API plus javascript method just made things too slow to be any fun, and the CSS transformations were simply not well-supported across browsers.
 
-Fast-forward to 2018. While attempting to set up a blog, I discovered Blot.im - a service which will make a website out of files on your Dropbox. You make posts by dropping text files into a folder, and Blot renders them with a Mustache-based template. The template can live on your Dropbox, too. 
+Fast-forward to 2018. While attempting to set up a blog, I discovered Blot.im - a service which will make a website out of files on Dropbox. You make posts by dropping text files into a folder, and Blot renders them with a Mustache-based template. The template can live in Dropbox, too. 
 
 And that was the piece of the moon puzzle that I needed! I can run a script to get the moon data on my local machine, which updates a CSS snippet in the Blot folder, which is then used for rendering the site immediately. As the moon is a slowly changing object, updating the data every 15 minutes is totally fine and keeps me under the free API call limit. And modern CSS transformations are now supported by just about every browser, so the moon shape change is totally doable as well.
 
@@ -63,6 +63,7 @@ I am using [Blot.im](http://blot.im). It automatically updates the CSS fragment 
 
 ## Final Thoughts
 I'm an artist, not a coder, and I wrote this with the tools I know. I am sure there are many, many other ways to do this, and I provided the details here so that you can rewrite it with the tools you know. Enjoy.
+
 
 ## License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
