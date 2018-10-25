@@ -6,6 +6,7 @@ An art project depicting the current phase of the moon in CSS
 - [Specifics](#specifics)
 	- [API](#API)
 	- [Script](#script)
+	- [HTML & CSS](#html--css)
 	- [Site Generator](#site-generator)
 - [Final Thoughts](#final-thoughts)
 - [License](#license)
@@ -24,10 +25,9 @@ My first attempts involved reading moon data from a weather API, and using javas
 
 Later attempts included trying to shift a moon shape from crescent to full and back, using then-new CSS tools like scale and transform. But again, the limitations of the API plus javascript method just made things too slow to be any fun, and the CSS transformations were simply not well-supported across browsers.
 
-Fast-forward to 2018. While attempting to set up a blog, I discovered Blot.im - a service which makes websites out of files on Dropbox. You make posts by dropping text files into a folder, and Blot renders them with a [Mustache](http://mustache.github.io/)-based template. The template can live in Dropbox, too. 
+Fast-forward to 2018. While attempting to set up a blog, I discovered [Blot.im](http://blot.im) - a service which makes websites out of files on Dropbox. You make posts by dropping text files into a folder, and Blot renders them with a [Mustache](http://mustache.github.io/)-based template. The template can live in Dropbox, too. 
 
 And that was the piece of the moon puzzle that I needed! I run a script to get the moon data on my local machine, which updates a CSS snippet in the Blot folder, which is then used for rendering the site immediately - no waiting on an API call or Javascript rewrites. As the moon is a slowly changing object, updating the data every 15 minutes is totally fine and keeps me under the free API call limit. And modern CSS transformations are now supported by just about every browser, so the moon shape change is totally doable as well.
-
 
 
 ## Components
@@ -55,8 +55,10 @@ Read the comments in the script for more information about how the various numbe
 
 In order to automate the running of the script, I created a launchd file (local.moonupdate.plist) which runs every 15 minutes. Be sure to change the path to your path. [Quick launchd tutorial](https://www.maketecheasier.com/use-launchd-run-scripts-on-schedule-macos/) 
 
-The moon.css fragment is pulled into the main styles.css file via @import.
+### HTML & CSS
+The moon.css fragment is pulled into the main styles.css file via @import. The unchanging parts of the CSS are in the styles.css file, and only the changing colors and transformations are in the moon.css file.
 
+The HTML involved is relatively simple. 3 divs stacked on each other inside a wrapper div. The 3 divs are the moon itself (a white circle), a moon shadow (this transforms color and shape to hide part of the white circle), and a moon "glow" which provides a little soft glow around the circle. The moon div is clipped using a clipping path during some phases, and the moon shadow div is not shown then.
 
 ### Site Generator
 I am using [Blot.im](http://blot.im). It automatically updates the CSS fragment in the blog template folder any time the file is updated, which is the crux of this whole system.
