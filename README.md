@@ -20,7 +20,7 @@ Few people watch the details of the physical world around us, and this project i
 
 This project has been on my mind for many years. I started out looking to create a way to change the color of a website dynamically with the phases of the moon, mimicking the way the sky is darker on a moonless night, and brighter when it's near the full moon.
 
-My first attempts involved reading moon data from a weather API, and using javascript to rewrite CSS background colors on the fly, changing them from dark to light with the waning and waxing of the moon It was not very satifying, as it was too slow - grabbing the API data and then writing the CSS made page drawing times excrutiating.
+My first attempts involved reading moon data from a weather API, and using javascript to rewrite CSS background colors on the fly, changing them from dark to light with the waning and waxing of the moon. It was not very satifying, as it was too slow - grabbing the API data and then writing the CSS made page drawing times excrutiating.
 
 Later attempts included trying to shift a moon shape from crescent to full and back, using then-new CSS tools like scale and transform. But again, the limitations of the API plus javascript method just made things too slow to be any fun, and the CSS transformations were simply not well-supported across browsers.
 
