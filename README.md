@@ -27,7 +27,7 @@ Later attempts included trying to shift a moon shape from crescent to full and b
 
 Fast-forward to 2018. While attempting to set up a blog, I discovered [Blot.im](http://blot.im) - a service which makes websites out of files on Dropbox. You make posts by dropping text files into a folder, and Blot renders them with a [Mustache](http://mustache.github.io/)-based template. The template can live in Dropbox, too. 
 
-And that was the piece of the moon puzzle that I needed! I run a script to get the moon data on my local machine, which updates a CSS snippet in the Blot folder, which is then used for rendering the site immediately - no waiting on an API call or Javascript rewrites. As the moon is a slowly changing object, updating the data every 15 minutes is totally fine and keeps me under the free API call limit. And modern CSS transformations are now supported by just about every browser, so the moon shape change is totally doable as well.
+And that was the piece of the moon puzzle that I needed! I run a script to get the moon data on my local machine, which updates a CSS snippet in the Blot folder, which is then used for rendering the site immediately - no waiting on an API call or Javascript rewrites. As the moon is a slowly changing object, updating the data every 45 minutes is totally fine and keeps me under the free API call limit. And modern CSS transformations are now supported by just about every browser, so the moon shape change is totally doable as well.
 
 
 ## Components
