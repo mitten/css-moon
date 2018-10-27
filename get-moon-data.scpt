@@ -23,6 +23,8 @@ tell application "JSON Helper"
 	
 	set illumpercent to illum of thePhase as number
 	
+	set moontilt to angle of thePhase as number
+	
 end tell
 
 (*
@@ -103,6 +105,10 @@ if moonage > 22.2 then
 	set translatemoonage to 46 - ((moonage * 6.21621) - (1 / moonage))
 	set the_css to the_css & " .moonshadow {transform: scale(1," & scalemoonage & ") translate(" & translatemoonage & "%, 0%);}" as string
 end if
+
+-- css for tilt based on location
+set moontilt to moontilt * 100 --change to whole number
+set the_css to the_css & " .moonwrapper {transform: rotate(-" & moontilt & "deg);}" as string
 
 -- choose css file --change this to your path
 set cssFile to ("path:to:your:site:template:file:moon.css")
