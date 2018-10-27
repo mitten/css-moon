@@ -35,7 +35,7 @@ end tell
 *)
 
 -- calculates body background, keeps a little color at the deep end
-set illumbackground to 30 + (illumpercent * 0.7)
+set illumbackground to 25 + (illumpercent * 0.5)
 
 -- sets css text color appropriate to background
 -- light text on dark background, dark text on midtone through light backgrounds
@@ -51,13 +51,13 @@ set the_css to "body, .moonshadow {background:hsl(235,6%," & illumbackground & "
 
 -- adds a faint outline during the full moon, a fainter one just before and after, and two levels of faint glow otherwise
 if moonage ≥ 14.5 and moonage ≤ 15.5 then
-	set the_css to the_css & " .moonglow {box-shadow: 0px 0px 2px 0px inset hsla(0,0%," & illumtext & "%,.1);}" as string
+	set the_css to the_css & " .moonglow {box-shadow: 0px 0px 2px 0px inset hsla(0,0%," & illumtext & "%,.2);}" as string
 else if (moonage ≥ 14 and moonage < 14.5) or (moonage > 15.5 and moonage ≤ 16) then
-	set the_css to the_css & " .moonglow {box-shadow: 0px 0px 1px 0px inset hsla(0,0%," & illumtext & "%,.1);}" as string
+	set the_css to the_css & " .moonglow {box-shadow: 0px 0px 2px 0px inset hsla(0,0%," & illumtext & "%,.1);}" as string
 else if (moonage ≥ 13 and moonage < 14) or (moonage > 16 and moonage ≤ 17) then
-	set the_css to the_css & " .moonglow {box-shadow: 0px 2px 4px 0px rgba(255,255,255,.2);}" as string
+	set the_css to the_css & " .moonglow {box-shadow: 0px 2px 4px 2px rgba(255,255,255,.1);}" as string
 else
-	set the_css to the_css & " .moonglow {box-shadow: 0px 2px 4px 0px rgba(255,255,255,.1);}" as string
+	set the_css to the_css & " .moonglow {box-shadow: 0px 2px 4px 2px rgba(255,255,255,.05);}" as string
 end if
 
 (*
