@@ -34,7 +34,7 @@ And that was the piece of the moon puzzle that I needed! I run a script to get t
 The files in this repository are specific to the tools I've used to set up this dynamic system. However, you should be able to adapt them to a variety of platforms. Be clever.
 
 **API**
-You need a weather API which gives the age of the moon in days, and the illumination of the moon as a percent.
+You need a weather API which gives the age of the moon in days, the illumination of the moon as a percent, and the angle of tilt. The angle is not as critical as the age and illumination.
 
 **Script**
 You need to be able to manipulate the numbers you get from the API and write them to a file as CSS selectors. You also need to be able to automate the running of the script.
@@ -46,12 +46,12 @@ You need an automated way to update the CSS files for your site.
 ## Specifics
 
 ### API
-I am using the [Aeris Weather API](https://www.aerisweather.com/). The two data items you need are age of moon in days and illumination of moon as a percentage.
+I am using the [Aeris Weather API](https://www.aerisweather.com/). The two data items you must have are age of moon in days and illumination of moon as a percentage. If you have the angle of tilt, you can use that, too.
 
 ### Script
 The script (get-moon-data.scpt) grabs the data, performs various calculations to create CSS selectors, and writes those to a file (moon.css). In order to read API data with Applescript, you'll need to install the free helper app [JSON Helper](http://www.mousedown.net/mouseware/JSONHelper.html).
 
-Read the comments in the script for more information about how the various numbers are calculated. Be sure to put in your own API client ID and secret key, and to change the path to the CSS file. If you're using a different API, you will also need to adjust the names/keys for the data pieces you want.
+Read the comments in the script for more information about how the various numbers are calculated. Be sure to put in your own API client ID and secret key, and to change the path to the CSS file. If you're using a different API, you will also need to adjust the names/keys for the data pieces you want. If you are not using the API angle of tilt, try hard-coding -12deg into the script. That makes an aesthetically pleasing tilt.
 
 In order to automate the running of the script, I created a launchd file (local.moonupdate.plist) which runs every 15 minutes. Be sure to change the path to your path. [Quick launchd tutorial](https://www.maketecheasier.com/use-launchd-run-scripts-on-schedule-macos/) 
 
