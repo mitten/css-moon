@@ -11,11 +11,6 @@ An art project depicting the current phase of the moon in CSS
 - [Final Thoughts](#final-thoughts)
 - [License](#license)
 
-
-## In Action
-See the end product here: http://mitten.github.io/css-moon
-
-
 ## Purpose & History
 Few people watch the details of the physical world around us, and this project is my way of bringing some visual data from the natural world into the digital world. The color of the site gets darker as the moon's light wanes, and brighter as it waxes, giving visitors a subtle reminder that we exist on a spinning planet.
 
@@ -66,10 +61,4 @@ I am using [Blot.im](http://blot.im). It automatically updates the CSS fragment 
 
 ## Final Thoughts
 I'm an artist, not a coder, and I wrote this with the tools I know. I am sure there are many, many other ways to do this, and I provided the details here so that you can rewrite it with the tools you know. Enjoy.
-
-
-## License
-<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
-
-You may use this code with attribution for non-commercial projects. For commercial projects, please contact me at https://laurafisher.art for a license. 
 
