@@ -9,7 +9,6 @@ An art project depicting the current phase of the moon in CSS
 	- [HTML & CSS](#html--css)
 	- [Site Generator](#site-generator)
 - [Final Thoughts](#final-thoughts)
-- [License](#license)
 
 ## Purpose & History
 Few people watch the details of the physical world around us, and this project is my way of bringing some visual data from the natural world into the digital world. The color of the site gets darker as the moon's light wanes, and brighter as it waxes, giving visitors a subtle reminder that we exist on a spinning planet.
